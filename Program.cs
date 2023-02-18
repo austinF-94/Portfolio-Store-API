@@ -1,11 +1,11 @@
+using Store_API.Migrations;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddSqlite<ProductDbContext>("Data Source=Store_API.db");
 
 var app = builder.Build();
 

@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Store_API.Models;
 
-public class Poducts 
+public class Product 
 {
     public int ProductId { get; set; }
 
@@ -14,7 +14,7 @@ public class Poducts
 
     [Required]
     public string? Description { get; set; }
-    
+
     [Required]
     public string? Picture { get; set; }
 }
