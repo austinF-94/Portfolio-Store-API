@@ -6,6 +6,7 @@ namespace Store_API.Migrations;
 public class ProductDbContext : DbContext
 {
     public DbSet<Product> Product { get; set; }
+    public DbSet<Admin> Admin { get; set; }
     public ProductDbContext(DbContextOptions<ProductDbContext> options)
         : base(options)
     {
@@ -23,6 +24,14 @@ public class ProductDbContext : DbContext
             entity.Property(e => e.Price).IsRequired();
             entity.Property(e => e.Description).IsRequired();
             entity.Property(e => e.Picture).IsRequired();
+        });
+
+        modelBuilder.Entity<Admin>(entity =>
+{
+            entity.HasKey(e => e.AdminId);
+            entity.Property(e => e.Email).IsRequired();
+            entity.HasIndex(x => x.Email).IsUnique();
+            entity.Property(e => e.Password).IsRequired();
         });
 
 
