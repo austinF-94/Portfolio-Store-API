@@ -8,6 +8,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSqlite<ProductDbContext>("Data Source=Store_API.db");
 builder.Services.AddScoped<IProductsRepository, ProductsRepository>();
+builder.Services.AddScoped<IAdminService, AdminService>();
 
 var app = builder.Build();
 
